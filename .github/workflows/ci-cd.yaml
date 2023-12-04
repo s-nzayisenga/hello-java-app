@@ -70,4 +70,4 @@ jobs:
         run: docker buildx create --use && docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ github.repository }}:${{ env.RELEASE_TAG }} .
 
       - name: Push Docker Image
-        run: docker push ghcr.io/${{ github.repository }}:${{ env.RELEASE_TAG }}
+        run: docker push ghcr.io/${{ github.actor }}/${{ github.repository }}:${{ env.RELEASE_TAG }}
