@@ -49,7 +49,9 @@ jobs:
 
       - name: Debug Workflow on Release
         run: |
-          ls -l build/libs
+          pwd
+          ls
+          # ls -l build/libs
 
       - name: Upload Artifacts
         id: upload-artifacts
