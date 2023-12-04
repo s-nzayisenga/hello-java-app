@@ -40,6 +40,8 @@ jobs:
           release_name: Release ${{ env.RELEASE_TAG }}
           draft: false
           prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Artifacts
         id: upload-artifacts
