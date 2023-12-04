@@ -22,6 +22,10 @@ jobs:
       - name: Build and test
         run: ./gradlew build
 
+      - name: Debug Workflow
+        run: |
+          ls -l build/libs
+
   release:
     runs-on: ubuntu-latest
     env:
