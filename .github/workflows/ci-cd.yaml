@@ -22,7 +22,7 @@ jobs:
       - name: Build and test
         run: ./gradlew build
 
-      - name: Debug Workflow
+      - name: Debug Workflow on Build
         run: |
           ls -l build/libs
 
@@ -46,12 +46,16 @@ jobs:
           release_name: Release ${{ env.RELEASE_TAG }}
           draft: false
           prerelease: false
-        
+
+      - name: Debug Workflow on Release
+        run: |
+          ls -l build/libs
+
       - name: Upload Artifacts
         id: upload-artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: hellospringboot
+          name: keda-newrelic-app
           path: build/libs
 
   deploy:
