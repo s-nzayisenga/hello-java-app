@@ -24,6 +24,7 @@ jobs:
 
       - name: Debug Workflow on Build
         run: |
+          pwd
           ls -l build/libs
 
   release:
