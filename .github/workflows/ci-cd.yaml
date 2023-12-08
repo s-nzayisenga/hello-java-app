@@ -55,7 +55,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      RELEASE_TAG: ${{ needs.release.outputs.release-tag }}
+      #RELEASE_TAG: ${{ needs.release.outputs.release-tag }}
 
     needs: release
 
@@ -85,7 +85,7 @@ jobs:
             ls -l
 
       - name: Build Docker Image
-        run: docker build -t ghcr.io/${{ github.repository }}:${{ env.RELEASE_TAG }} . -f Dockerfile
+        run: docker build -t ghcr.io/${{ github.repository }}:${{ needs.release.outputs.release-tag }} . -f Dockerfile
 
       - name: Push Docker Image
-        run: docker push ghcr.io/${{ github.repository }}:${{ env.RELEASE_TAG }}
+        run: docker push ghcr.io/${{ github.repository }}:${{ needs.release.outputs.release-tag }}
