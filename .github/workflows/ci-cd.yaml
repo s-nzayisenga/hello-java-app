@@ -76,16 +76,20 @@ jobs:
       - name: Login to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         
-      #- name: Set released tag in env vars
-      #  run: echo "RELEASE_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Set image tag in env vars
+        run: echo "RELEASE_TAG=${{ needs.release.outputs.release-tag }}" >> $GITHUB_ENV
 
       - name: Debug Workflow
         run: |
             pwd
             ls -l
 
+      - name: Set Release Tag
+        id: set_release_tag
+        run: echo "RELEASE_TAG=${{ needs.release.outputs.release-tag }}" >> $GITHUB_ENV
+
       - name: Build Docker Image
-        run: docker build -t ghcr.io/${{ github.repository }}:${{ needs.release.outputs.release-tag }} . -f Dockerfile
+        run: docker build -t ghcr.io/${{ github.repository }}:${{ env.RELEASE_TAG }} . -f Dockerfile
 
       - name: Push Docker Image
-        run: docker push ghcr.io/${{ github.repository }}:${{ needs.release.outputs.release-tag }}
+        run: docker push ghcr.io/${{ github.repository }}:${{ env.RELEASE_TAG }}
