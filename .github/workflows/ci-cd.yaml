@@ -67,6 +67,11 @@ jobs:
         
       - name: Set released tag in env vars
         run: echo "RELEASE_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        
+      - name: Debug Workflow
+        run: |
+            pwd
+            ls -l
 
       - name: Build Docker Image
         #run: docker buildx create --use && docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ github.repository }}:${{ env.RELEASE_TAG }} .
