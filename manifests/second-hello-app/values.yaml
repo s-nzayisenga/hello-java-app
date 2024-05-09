@@ -1,0 +1,10 @@
+# Default values for java-hello-app.
+# This is a YAML-formatted file.
+
+replicaCount: "1"
+
+# hello App depployment configurations
+deploymentconfigs:
+  repository: ghcr.io/s-nzayisenga/hello-java-app
+  image:
+    tag: v1.0.4
