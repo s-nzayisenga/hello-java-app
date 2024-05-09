@@ -7,4 +7,4 @@ replicaCount: 1
 deploymentconfigs:
   repository: ghcr.io/s-nzayisenga/hello-java-app
   image:
-    tag: v1.0.2
+    tag: v1.0.4
