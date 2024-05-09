@@ -9,8 +9,8 @@ metadata:
   name: java-deployment
   namespace: apps
 spec:
-  replicas: "{{ .Values.replicaCount }}"
-  #replicas: 1
+  #replicas: "{{ .Values.replicaCount }}"
+  replicas: 1
   selector:
     matchLabels:
       app: java-app
@@ -21,8 +21,8 @@ spec:
     spec:
       containers:
         - name: java-app
-          #image: ghcr.io/s-nzayisenga/hello-java-app:v1.0.0
-          image: "{{ .Values.deploymentconfigs.repository }}:{{ .Values.deploymentconfigs.image.tag }}"
+          image: ghcr.io/s-nzayisenga/hello-java-app:v1.0.4
+          #image: "{{ .Values.deploymentconfigs.repository }}:{{ .Values.deploymentconfigs.image.tag }}"
           ports:
             - containerPort: 8080
 ---
