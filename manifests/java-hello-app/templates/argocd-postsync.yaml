@@ -2,10 +2,11 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: integration-test
+  namespace: apps
   annotations:
     argocd.argoproj.io/hook: PostSync
     # argocd.argoproj.io/hook-delete-policy: HookSucceeded
-    namespace: apps
+    
 spec:
   ttlSecondsAfterFinished: 100000
   template:
