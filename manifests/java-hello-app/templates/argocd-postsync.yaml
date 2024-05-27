@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: curl
-          image: curlimages/curl
+          #image: curlimages/curl
+          image: badouralix/curl-jq:latest
           imagePullPolicy: Always
           env:
             - name:  ARGO_POSTSYNC_GITHUB_TOKEN
