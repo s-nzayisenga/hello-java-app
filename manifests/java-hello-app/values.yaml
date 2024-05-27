@@ -1,6 +1,9 @@
 # Default values for java-hello-app.
 # This is a YAML-formatted file.
-
+argoPostSync:
+  enabled: false
+  targetEnvFile: DEV.json
+  
 replicaCount: "1"
 
 # hello App depployment configurations
