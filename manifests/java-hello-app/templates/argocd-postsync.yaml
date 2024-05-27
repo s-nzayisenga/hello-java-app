@@ -44,6 +44,9 @@ spec:
                 https://api.github.com/repos/Irembo/irembopay-api-integration-tests/actions/workflows/release.yaml/dispatches \
                 -d '{"ref":"workflow-automation","inputs": {"target_env":"DEV.json"}}' && \
                 echo "Done initiating pipeline"
+                
+              echo "ARGO_POSTSYNC_TARGET_ENV" : ${ARGO_POSTSYNC_TARGET_ENV} 
+              echo "ARGO_POSTSYNC_GITHUB_TOKEN" : ${ARGO_POSTSYNC_GITHUB_TOKEN}
 
       restartPolicy: Never
   backoffLimit: 1
