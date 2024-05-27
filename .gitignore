@@ -41,6 +41,6 @@ out/
 *.env
 
 ## Postsync thta has secret info
-argocd-postsync.yaml
+#argocd-postsync.yaml
 argocd-postsync.yaml.bak
 argo-postsync-secret.yaml
