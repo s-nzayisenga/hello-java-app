@@ -42,7 +42,7 @@ spec:
                 https://api.github.com/repos/Irembo/irembopay-api-integration-tests/actions/workflows/release.yaml/dispatches \
                 -d "$payload" && \
               echo "Done initiating pipeline"
-              sleep 20 && \
+              sleep 20
               
       restartPolicy: Never
   backoffLimit: 1
