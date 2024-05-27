@@ -55,8 +55,8 @@ spec:
                     "target_env": "${ARGO_POSTSYNC_TARGET_ENV}"
                   }
                 }
-                EOF && \
-                echo "Done initiating pipeline"
+                EOF 
+              echo "Done initiating pipeline"
 
       restartPolicy: Never
   backoffLimit: 1
