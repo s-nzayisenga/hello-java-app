@@ -39,6 +39,8 @@ out/
 .DS_Store
 .env
 *.env
-*-secret*
-argocd-postsync.yaml.bak
 
+## Postsync thta has secret info
+argocd-postsync.yaml
+argocd-postsync.yaml.bak
+argo-postsync-secret.yaml

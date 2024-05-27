@@ -1,4 +1,5 @@
 {{- if .Values.argoPostSync.enabled }}
+{{- if .Values.argoPostSync.enabled }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -24,7 +25,6 @@ spec:
                   key: token
             - name: ARGO_POSTSYNC_TARGET_ENV
               value: {{ .Values.argoPostSync.targetEnvFile | quote }}
-
           command:
             - "/bin/sh"
             - "-c"
@@ -39,9 +39,20 @@ spec:
               fi
 
               echo "starting command"
-              echo "Done initiating pipeline"
+              echo "ARGO_POSTSYNC_TARGET_ENV" : ${ARGO_POSTSYNC_TARGET_ENV} 
+              echo "ARGO_POSTSYNC_GITHUB_TOKEN" : ${ARGO_POSTSYNC_GITHUB_TOKEN}
 
+              # Check if Environment Variables are set
+              if [[ -z "$ARGO_POSTSYNC_TARGET_ENV}" || -z "$ARGO_POSTSYNC_GITHUB_TOKEN" ]]; then
+                echo "Environment variables are not set. Please make sure ARGO_POSTSYNC_TARGET_ENV and ARGO_POSTSYNC_GITHUB_TOKEN are defined."
+                exit 1
+              fi
+
+              echo "starting command"
+              echo "Done initiating pipeline"
       restartPolicy: Never
   backoffLimit: 1
+
+  {{- end }}
 
   {{- end }}
