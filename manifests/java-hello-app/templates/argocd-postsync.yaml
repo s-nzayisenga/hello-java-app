@@ -36,7 +36,7 @@ spec:
               echo "GITHUB_TOKEN: ${ARGO_POSTSYNC_GITHUB_TOKEN}" && \
               echo "TARGET_ENV: ${ARGO_POSTSYNC_TARGET_ENV}" && \
               # JSON_PAYLOAD="{\"ref\":\"workflow-automation\",\"inputs\":{\"target_env\":\"$ARGO_POSTSYNC_TARGET_ENV\"}}" && \
-              JSON_PAYLOAD='{\"ref\":\"workflow-automation\",\"inputs\":{"target_env":"DEV.json",}}' && \
+              JSON_PAYLOAD='{"ref":"workflow-automation","inputs":{"target_env":"DEV.json",}}' && \
               echo "JSON_PAYLOAD: $JSON_PAYLOAD" && \
               curl -L -X POST -H "Accept: application/vnd.github+json" \
                 -H "Authorization: Bearer ${ARGO_POSTSYNC_GITHUB_TOKEN}" \
