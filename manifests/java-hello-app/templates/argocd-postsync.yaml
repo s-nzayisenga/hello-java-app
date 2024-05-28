@@ -53,7 +53,7 @@ spec:
                 -H "Authorization: Bearer ${ARGO_POSTSYNC_GITHUB_TOKEN}" \
                 -H "X-GitHub-Api-Version: 2022-11-28" \
                 https://api.github.com/repos/Irembo/irembopay-api-integration-tests/actions/workflows/release.yaml/dispatches \
-                -d '{"ref":"workflow-automation","inputs":{"target_env":"UAT.json"}}' && \
+                -d '{"ref":"workflow-automation"}' && \
               echo "Done initiating pipeline" && \
               sleep 10 && \
               echo "Command execution complete"
