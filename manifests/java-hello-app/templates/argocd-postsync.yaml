@@ -63,7 +63,7 @@ spec:
               echo "Starting command" && \
               echo "GITHUB_TOKEN: ${ARGO_POSTSYNC_GITHUB_TOKEN}" && \
               echo "TARGET_ENV: ${ARGO_POSTSYNC_TARGET_ENV}" && \
-              JSON_PAYLOAD="{\"ref\":\"workflow-automation\",\"inputs\":{\"target_env\":\"${ARGO_POSTSYNC_TARGET_ENV}\"}}" && \
+              JSON_PAYLOAD="{\"ref\":\"workflow-automation\",\"inputs\":{\"target-env\":\"${ARGO_POSTSYNC_TARGET_ENV}\"}}" && \
               # Remove any trailing newlines from JSON_PAYLOAD
               JSON_PAYLOAD=$(echo $JSON_PAYLOAD | tr -d '\n') && \
               echo "${JSON_PAYLOAD}" > payload.json && \
